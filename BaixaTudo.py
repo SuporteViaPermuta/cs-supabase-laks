@@ -82,14 +82,14 @@ def BaixaTudo(Acesso="dudauberaba", Unidade='Uberaba', Days="90"):
     WebDriverWait(navegador, 100).until(EC.invisibility_of_element_located((By.CLASS_NAME, "loading-backdrop")))
 
     tmp = wait_file("Associados")
-    print(tmp); print("1111")
+    # print(tmp); print("1111")
     #Baixa Arquivo
     icone_exportar_excel = navegador.find_element(By.XPATH, "//i[@title='Exportar para Excel']")
     icone_exportar_excel.click()
     # print("qwet")
     while tmp == wait_file("Associados"):
-        print(tmp); print(wait_file("Associados"));
-        print("AzZZ");
+        # print(tmp); print(wait_file("Associados"));
+        # print("AzZZ");
         sleep(1)
     print("passou")
 
@@ -209,6 +209,7 @@ for i in Unidades:
 print(Acesso,Unidade)
 """
 # BaixaTudo(Acesso, Unidade)
+
 
 
 
