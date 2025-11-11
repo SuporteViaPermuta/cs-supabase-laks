@@ -9,7 +9,7 @@ def ListaAssUnidade(Unidade = "Araxa"):
 
     # Padrão para buscar o arquivo de download mais recente
     # pattern = 'C:\\Users\\Gabriel Oliveira\\Downloads\\Associados*.*'
-    pattern = f'{os.path.join(os.path.expanduser("~"), "Downloads")}\\Associados*.*'
+    pattern = os.path.join(os.path.expanduser("~"), "Downloads", "Associados*")
     # print(pattern)
 
     matching_files = glob.glob(pattern)
@@ -56,6 +56,7 @@ def ListaAssUnidade(Unidade = "Araxa"):
     df_Associados['Franquia'] = df_Associados['Franquia'].replace(mapeamento_franquias) 
 
     df_Associados.to_excel(f"Associados{Unidade}.xlsx", index=False)
+
 
 
 
