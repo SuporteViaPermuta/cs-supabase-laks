@@ -152,8 +152,8 @@ def BaixaTudo(Acesso="dudauberaba", Unidade='Uberaba', Days="90"):
         # Inicio = (datetime.now() - timedelta(days=diaz)).strftime("%d/%m/%Y") # .replace('/','') #Baixa o meio ano
         # Fim = (datetime.now() - timedelta(days=diaz-29)).strftime("%d/%m/%Y") #.replace('/','') # Assim vai até ontem, o que pode ser até melhor
         # Versao LINUX:
-        Inicio = (datetime.now() - timedelta(days=diaz-1)).strftime("%Y/%m/%d") # .replace('/','') #Baixa o meio ano
-        Fim = (datetime.now() - timedelta(days=diaz-30)).strftime("%Y/%m/%d") #.replace('/','')
+        Inicio = (datetime.now() - timedelta(days=diaz-1)).strftime("%m/%d/%Y") # .replace('/','') #Baixa o meio ano
+        Fim = (datetime.now() - timedelta(days=diaz-30)).strftime("%m/%d/%Y") #.replace('/','')
 
         # Início index=0 ordem do array de dater's inputs:
         InputDater(navegador=navegador, data=Inicio, index=0, label="Início"); sleep(0.5) #chrome
@@ -212,6 +212,7 @@ for i in Unidades:
 print(Acesso,Unidade)
 """
 # BaixaTudo(Acesso, Unidade)
+
 
 
 
