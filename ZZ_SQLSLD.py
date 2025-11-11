@@ -37,7 +37,7 @@ def BATCH_Create_PostgresNULL(TableName="z1lista_associados", Completo=[]):
 
     Values = ''
     for Linha in Completo:
-        Values+=f"({", ".join(Linha.values())})\n"
+        Values+=f'({", ".join(Linha.values())})\n'
 
 
     query = f'INSERT INTO {TableName} ({", ".join(Completo[0].keys())})"\n'
@@ -168,5 +168,6 @@ def BATCH_Update_Postgres(TableName="z1lista_associados", data_list=[]):
     conn.commit()
     cursor.close()
     conn.close()
+
 
     print(f"{len(data_list)} registros atualizados na tabela {TableName}!")
