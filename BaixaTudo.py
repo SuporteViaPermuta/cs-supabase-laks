@@ -88,6 +88,7 @@ def BaixaTudo(Acesso="dudauberaba", Unidade='Uberaba', Days="90"):
     icone_exportar_excel.click()
     # print("qwet")
     while tmp == wait_file("Associados"):
+        print(tmp); print(wait_file("Associados"));
         print("AzZZ");
         sleep(1)
     print("passou")
@@ -208,6 +209,7 @@ for i in Unidades:
 print(Acesso,Unidade)
 """
 # BaixaTudo(Acesso, Unidade)
+
 
 
 
