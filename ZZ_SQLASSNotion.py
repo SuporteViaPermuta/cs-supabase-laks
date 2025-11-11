@@ -7,7 +7,7 @@ warnings.simplefilter(action='ignore', category=UserWarning)
 # notion = Client(auth="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")
 
 
-def Get_Notion(database_id="21d36fd59cd88047a835f8d688c71910", token="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", includes="*"):
+def Get_Notion(database_id="21d36fd59cd88047a835f8d688c71910", token="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", includes="*"):
     """
     Busca todos os dados de uma database do Notion e retorna um DataFrame.
     Compatível com qualquer versão da API.
@@ -150,3 +150,4 @@ def BATCH_Update_Notion(data_list=[], token="ntn_14761172184Ffh9x6R5qGPf8oweaNrk
             print(f"Erro ao atualizar {page_id}: {response.status_code} - {response.text}")
 
     print(f"{updated_count} registros atualizados com sucesso no Notion!")
+
