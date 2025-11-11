@@ -36,6 +36,7 @@ def SaldoAssUnidade(Unidade = 'Uberaba'):
         'Qtd Total': 'Quantidade Permutada',
         'CrÃ©dito DisponÃ­vel': 'Crédito Disponível',
         'Crð©dito Disponð­vel': 'Crédito Disponível',
+        'Credito Disponi\xadvel': 'Crédito Disponível'
     }, inplace=True)
 
 
@@ -115,3 +116,4 @@ def SaldoAssUnidade(Unidade = 'Uberaba'):
 
 
 # SaldoAssUnidade()
+
