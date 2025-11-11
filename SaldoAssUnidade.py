@@ -9,7 +9,8 @@ def SaldoAssUnidade(Unidade = 'Uberaba'):
 
     # Padrão para buscar o arquivo de download mais recente
     # pattern = 'C:\\Users\\Gabriel Oliveira\\Downloads\\Saldo Associados*.*'
-    pattern = f'{os.path.join(os.path.expanduser("~"), "Downloads")}\\Saldo Associados*.*'
+    # pattern = f'{os.path.join(os.path.expanduser("~"), "Downloads")}\\Saldo Associados*.*'
+    pattern = os.path.join(os.path.expanduser("~"), "Downloads", "Saldo Associados*")
     matching_files = glob.glob(pattern)
 
     # Filtra apenas arquivos .xls e .xlsx e ordena pela data de modificação
@@ -110,6 +111,7 @@ def SaldoAssUnidade(Unidade = 'Uberaba'):
 
     df_arquivobaixado[['CNPJ ou CPF', 'Nome Fantasia ou Abreviacao', 'Saldo Atual', 'Crédito Disponível', 'Total Compra', 'Total Venda', 'Qtd Compras', 'Qtd Venda', 'Tkt Compra', 'Tkt Venda', 'Data Ultima Compra', 'Data Ultima Venda' ]].to_excel(f"Saldo_Associados3-{Unidade}.xlsx", index=False)
     # df_arquivobaixado[['CNPJ ou CPF', 'Nome Fantasia ou Abreviacao', 'Total Permutado Anual', 'Quantidade Permutada Anual',]].to_excel(f"SaldoRFV/rfv-{Unidade}.xlsx", index=False)
+
 
 
 # SaldoAssUnidade()
