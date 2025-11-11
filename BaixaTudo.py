@@ -12,7 +12,7 @@ def BaixaTudo(Acesso="dudauberaba", Unidade='Uberaba', Days="90"):
     # Days = os.getenv('Days') or 0
 
     options = Options()
-    # options.add_argument("--headless")
+    options.add_argument("--headless")
     options.add_argument("--disable-gpu")
 
     # Navegação anônima (sem pop-ups do perfil)
@@ -206,6 +206,7 @@ for i in Unidades:
 print(Acesso,Unidade)
 """
 # BaixaTudo(Acesso, Unidade)
+
 
 
 
