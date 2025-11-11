@@ -388,12 +388,13 @@ def update_nome_fantasia():
     cursor.close()
     conn.close()
     df.__len__()
-    print(f'{df['nome_novo'].__len__()} Nomes atualizados')
+    print(f"{df['nome_novo'].__len__()} Nomes atualizados")
     
     # Salvar o resultado em um novo arquivo Excel
     if os.path.exists(f'mudancas_nome.xlsx'):
         os.remove(f'mudancas_nome.xlsx')
 
     return
+
 
 # update_nome_fantasia()
