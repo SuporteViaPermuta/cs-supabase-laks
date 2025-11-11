@@ -47,7 +47,7 @@ for i in Unidades:
     Unidade = i.get('v')
     Acesso = i.get('k') 
 
-    # BaixaTudo(Acesso, Unidade, Days); sleep(1)
+    BaixaTudo(Acesso, Unidade, Days); sleep(1)
 
     #Lista Associados xlsx
     ListaAssUnidade(Unidade); sleep(1)
@@ -117,6 +117,7 @@ with open("status.txt", "w") as arquivo:
 sleep(2)
 from ZZZrequestPAC import PAC
 PAC()
+
 
 
 
