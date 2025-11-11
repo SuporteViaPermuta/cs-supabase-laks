@@ -11,7 +11,7 @@ def ListaNegUnidade(Unidade = "Uberaba", Days="90"):
     # ARQUIVO = 'ExtratoAssociado (1).xls'
     # Padrão para buscar o arquivo de download mais recente
     # pattern = 'C:\\Users\\Gabriel Oliveira\\Downloads\\ExtratoAssociado*.*'
-    pattern = f'{os.path.join(os.path.expanduser("~"), "Downloads")}\\negociacoes_filtradas_*.*'
+    pattern = os.path.join(os.path.expanduser("~"), "Downloads", "negociacoes_filtradas_*")
     matching_files = glob.glob(pattern)
 
     # Filtra apenas arquivos .xls e .xlsx e ordena pela ATUALIZAÇÃO de modificação
@@ -202,4 +202,5 @@ def ListaNegUnidade(Unidade = "Uberaba", Days="90"):
 
 
 # ListaNegUnidade()
+
 
