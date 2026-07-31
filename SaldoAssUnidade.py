@@ -72,10 +72,12 @@ def SaldoAssUnidade(Unidade = 'Uberaba'):
 
     # TOTAL PERMUTADO
 
-    df_arquivobaixado['Total Compra'] = df_arquivobaixado['Total Compra'].str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
+    # ANTIGO: df_arquivobaixado['Total Compra'] = df_arquivobaixado['Total Compra'].str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
+    df_arquivobaixado['Total Compra'] = df_arquivobaixado['Total Compra'].astype(str).str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
     df_arquivobaixado['Total Compra'] = df_arquivobaixado['Total Compra'].apply(lambda x: f"{float(x):.2f}")
 
-    df_arquivobaixado['Total Venda'] = df_arquivobaixado['Total Venda'].str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
+    # ANTIGO: df_arquivobaixado['Total Venda'] = df_arquivobaixado['Total Venda'].str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
+    df_arquivobaixado['Total Venda'] = df_arquivobaixado['Total Venda'].astype(str).str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
     df_arquivobaixado['Total Venda'] = df_arquivobaixado['Total Venda'].apply(lambda x: f"{float(x):.2f}")
 
     # df_arquivobaixado['Total Permutado'] = df_arquivobaixado['Total Permutado'].str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
@@ -102,10 +104,13 @@ def SaldoAssUnidade(Unidade = 'Uberaba'):
     # df_arquivobaixado['Saldo Atual'] = df_arquivobaixado['Saldo Atual'].apply(
     #     lambda x: f"{float(x.replace('.', '').replace(',', '.')):.2f}" if x != '000' else "0.00"
     # )
-    df_arquivobaixado['Saldo Atual'] = df_arquivobaixado['Saldo Atual'].str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
+    # Franca (unidade nova/sem movimento) pode vir com coluna numerica/vazia -> .str quebra; .astype(str) antes torna defensivo:
+    # ANTIGO: df_arquivobaixado['Saldo Atual'] = df_arquivobaixado['Saldo Atual'].str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
+    df_arquivobaixado['Saldo Atual'] = df_arquivobaixado['Saldo Atual'].astype(str).str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
     df_arquivobaixado['Saldo Atual'] = df_arquivobaixado['Saldo Atual'].apply(lambda x: f"{float(x):.2f}")
 
-    df_arquivobaixado['Crédito Disponível'] = df_arquivobaixado['Crédito Disponível'].str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
+    # ANTIGO: df_arquivobaixado['Crédito Disponível'] = df_arquivobaixado['Crédito Disponível'].str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
+    df_arquivobaixado['Crédito Disponível'] = df_arquivobaixado['Crédito Disponível'].astype(str).str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
     df_arquivobaixado['Crédito Disponível'] = df_arquivobaixado['Crédito Disponível'].apply(lambda x: f"{float(x):.2f}")
 
 
@@ -115,10 +120,12 @@ def SaldoAssUnidade(Unidade = 'Uberaba'):
         lambda x: pd.to_datetime(x, format='%d/%m/%Y', errors='coerce').strftime('%Y-%m-%d') 
         if pd.notna(x) and x != "" else '2000-01-01'
     ) """
-    df_arquivobaixado['Tkt Compra'] = df_arquivobaixado['Tkt Compra'].str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
+    # ANTIGO: df_arquivobaixado['Tkt Compra'] = df_arquivobaixado['Tkt Compra'].str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
+    df_arquivobaixado['Tkt Compra'] = df_arquivobaixado['Tkt Compra'].astype(str).str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
     df_arquivobaixado['Tkt Compra'] = df_arquivobaixado['Tkt Compra'].apply(lambda x: f"{float(x):.2f}")
 
-    df_arquivobaixado['Tkt Venda'] = df_arquivobaixado['Tkt Venda'].str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
+    # ANTIGO: df_arquivobaixado['Tkt Venda'] = df_arquivobaixado['Tkt Venda'].str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
+    df_arquivobaixado['Tkt Venda'] = df_arquivobaixado['Tkt Venda'].astype(str).str.replace('.', '', regex=False).str.replace(',', '', regex=False).astype(float) /100
     df_arquivobaixado['Tkt Venda'] = df_arquivobaixado['Tkt Venda'].apply(lambda x: f"{float(x):.2f}")
 
 
