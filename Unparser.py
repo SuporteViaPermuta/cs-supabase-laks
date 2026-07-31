@@ -5,9 +5,19 @@ from bs4 import BeautifulSoup
 
 def unparser(filepather = "Associados.xls", header = 0):
     # Lê o arquivo HTML
-    with open(filepather, "r", encoding="utf-8" if header else 'latin-1') as f:
-        # with open(filepather, "r", encoding="latin-1") as f:
-        html = f.read()
+    # --- ANTIGO (comentado p/ time dev): forçava latin-1 quando header=0 (falsy),
+    #     corrompendo acentos UTF-8 -> ex: UBERLÂNDIA virava UBERLÃ\x82NDIA ---
+    # with open(filepather, "r", encoding="utf-8" if header else 'latin-1') as f:
+    # # with open(filepather, "r", encoding="utf-8") as f:
+    #     html = f.read()
+    # --- NOVO: estes ".xls" são HTML em UTF-8; lê bytes e decodifica UTF-8
+    #     (fallback latin-1 só se não for UTF-8 válido) ---
+    with open(filepather, "rb") as f:
+        raw = f.read()
+    try:
+        html = raw.decode("utf-8")
+    except UnicodeDecodeError:
+        html = raw.decode("latin-1")
 
     # Função para substituir sequências de dois ou mais espaços por um marcador que indica a quantidade
     def replace_spaces(match):

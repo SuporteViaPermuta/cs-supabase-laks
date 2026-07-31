@@ -51,9 +51,11 @@ def ListaAssUnidade(Unidade = "Araxa"):
         'ARAXA': 'AAX1',
         'CURITIBA 1': 'CWB2',
         # 'RIBEIRAO PRETO 1': 'RIB1',
-        'UBERLÂNDIA': 'UDIA1'
+        'UBERLÂNDIA': 'UDIA1',
+        'UBERLÃ\x82NDIA': 'UDIA1',
+        'VIA PERMUTA FRANCA': 'FRA1'  # Franca adicionada
     }
-    df_Associados['Franquia'] = df_Associados['Franquia'].replace(mapeamento_franquias) 
+    df_Associados['Franquia'] = df_Associados['Franquia'].replace(mapeamento_franquias)
 
     df_Associados.to_excel(f"Associados{Unidade}.xlsx", index=False)
 

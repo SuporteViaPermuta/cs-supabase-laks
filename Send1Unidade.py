@@ -9,7 +9,9 @@ def Send1Unidade(Unidade='Araxa'):
 
     # Definir as unidades negociadas
     valores_permitidos = ['URA1', 'AAX1', 'CWB2', 'RIB1', 'UDIA1']
-    valores_permitidos = ['URA1', 'AAX1', 'CWB2', 'UDIA1']
+    # Franca adicionada (FRA1) -> linha antiga (sem Franca) comentada logo abaixo:
+    # valores_permitidos = ['URA1', 'AAX1', 'CWB2', 'UDIA1']
+    valores_permitidos = ['URA1', 'AAX1', 'CWB2', 'UDIA1', 'FRA1']
 
     # Filtrar os dados
     NossasBases = df[

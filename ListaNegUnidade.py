@@ -149,9 +149,11 @@ def ListaNegUnidade(Unidade = "Uberaba", Days="90"):
         'ARAXA': 'AAX1',
         'CURITIBA 1': 'CWB2',
         # 'RIBEIRAO PRETO 1': 'RIB1',
-        'UBERLÂNDIA': 'UDIA1'
+        'UBERLÂNDIA': 'UDIA1',
+        'UBERLÃ\x82NDIA': 'UDIA1',
+        'VIA PERMUTA FRANCA': 'FRA1'  # Franca adicionada
     }
-    df_sorted['Franquia Comprador'] = df_sorted['Franquia Comprador'].replace(mapeamento_franquias) 
+    df_sorted['Franquia Comprador'] = df_sorted['Franquia Comprador'].replace(mapeamento_franquias)
     df_sorted['Franquia Vendedor'] = df_sorted['Franquia Vendedor'].replace(mapeamento_franquias) 
     
     # df_sorted.to_excel(f"ReversaFiltered-{Unidade}.xlsx", index=False)

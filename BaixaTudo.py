@@ -69,7 +69,8 @@ def BaixaTudo(Acesso="dudauberaba", Unidade='Uberaba', Days="90"):
     sleep(1)  # É recomendável evitar sleeps fixos e usar o WebDriverWait quando possível
     navegador.find_element(By.NAME, "usu_login").send_keys(Acesso)
     sleep(1)
-    navegador.find_element(By.NAME, "usu_senha").send_keys("123456")
+    # navegador.find_element(By.NAME, "usu_senha").send_keys("123456")
+    navegador.find_element(By.CSS_SELECTOR, 'input[data-original-name="usu_senha"]').send_keys("123456")
     sleep(1)
     navegador.find_element(By.CLASS_NAME, "btn-warning").click()
 

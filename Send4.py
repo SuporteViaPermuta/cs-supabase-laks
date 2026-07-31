@@ -8,11 +8,14 @@ def Send4():
     SaldoAssCuritiba = pd.read_excel("Saldo_Associados3-Curitiba.xlsx")
     # SaldoAssRibeirao_Preto = pd.read_excel("Saldo_Associados3-Ribeirao_Preto.xlsx")
     SaldoAssUberlandia = pd.read_excel("Saldo_Associados3-Uberlandia.xlsx")
+    SaldoAssFranca = pd.read_excel("Saldo_Associados3-Franca.xlsx")  # Franca adicionada
     # AssociadosOutros = pd.read_excel("AssociadosOutros.xlsx")
 
 
     # df_total = pd.concat([SaldoAssUberaba, SaldoAssAraxa, SaldoAssCuritiba, SaldoAssRibeirao_Preto, SaldoAssUberlandia], ignore_index=True)
-    df_total = pd.concat([SaldoAssUberaba, SaldoAssAraxa, SaldoAssCuritiba, SaldoAssUberlandia], ignore_index=True)
+    # Franca adicionada -> linha antiga (sem Franca) comentada logo abaixo:
+    # df_total = pd.concat([SaldoAssUberaba, SaldoAssAraxa, SaldoAssCuritiba, SaldoAssUberlandia], ignore_index=True)
+    df_total = pd.concat([SaldoAssUberaba, SaldoAssAraxa, SaldoAssCuritiba, SaldoAssUberlandia, SaldoAssFranca], ignore_index=True)
 
     df_total = df_total.drop_duplicates()
 

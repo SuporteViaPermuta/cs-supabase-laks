@@ -8,6 +8,7 @@ def Send3():
     AssociadosCuritiba = pd.read_excel("AssociadosCuritiba.xlsx")
     # AssociadosRibeirao_Preto = pd.read_excel("AssociadosRibeirao_Preto.xlsx")
     AssociadosUberlandia = pd.read_excel("AssociadosUberlandia.xlsx")
+    AssociadosFranca = pd.read_excel("AssociadosFranca.xlsx")  # Franca adicionada
     
     # AssociadosOutros = pd.read_excel("AssociadosOutros.xlsx")
 
@@ -17,13 +18,18 @@ def Send3():
     OBCuritiba = pd.read_excel("ListAssOutrasBases-Curitiba.xlsx")
     # OBRibeirao_Preto = pd.read_excel("ListAssOutrasBases-Ribeirao_Preto.xlsx")
     OBUberlandia = pd.read_excel("ListAssOutrasBases-Uberlandia.xlsx")
+    OBFranca = pd.read_excel("ListAssOutrasBases-Franca.xlsx")  # Franca adicionada
 
     # AssociadosOutrasBases = pd.concat([OBUberaba, OBAraxa, OBCuritiba, OBRibeirao_Preto, OBUberlandia], ignore_index=True)
-    AssociadosOutrasBases = pd.concat([OBUberaba, OBAraxa, OBCuritiba, OBUberlandia], ignore_index=True)
+    # Franca adicionada -> linha antiga (sem Franca) comentada logo abaixo:
+    # AssociadosOutrasBases = pd.concat([OBUberaba, OBAraxa, OBCuritiba, OBUberlandia], ignore_index=True)
+    AssociadosOutrasBases = pd.concat([OBUberaba, OBAraxa, OBCuritiba, OBUberlandia, OBFranca], ignore_index=True)
     # AssociadosOutrasBases = AssociadosOutrasBases.drop_duplicates()
 
     # df_total = pd.concat([AssociadosUberaba, AssociadosAraxa, AssociadosCuritiba, AssociadosRibeirao_Preto, AssociadosUberlandia, AssociadosOutrasBases], ignore_index=True)
-    df_total = pd.concat([AssociadosUberaba, AssociadosAraxa, AssociadosCuritiba, AssociadosUberlandia, AssociadosOutrasBases], ignore_index=True)
+    # Franca adicionada -> linha antiga (sem Franca) comentada logo abaixo:
+    # df_total = pd.concat([AssociadosUberaba, AssociadosAraxa, AssociadosCuritiba, AssociadosUberlandia, AssociadosOutrasBases], ignore_index=True)
+    df_total = pd.concat([AssociadosUberaba, AssociadosAraxa, AssociadosCuritiba, AssociadosUberlandia, AssociadosFranca, AssociadosOutrasBases], ignore_index=True)
 
     df_total = df_total.drop_duplicates()
 
@@ -72,9 +78,11 @@ def Send3():
         'ARAXA': 'AAX1',
         'CURITIBA 1': 'CWB2',
         # 'RIBEIRAO PRETO 1': 'RIB1',
-        'UBERLÂNDIA': 'UDIA1'
+        'UBERLÂNDIA': 'UDIA1',
+        'UBERLÃ\x82NDIA': 'UDIA1',
+        'VIA PERMUTA FRANCA': 'FRA1'  # Franca adicionada
     }
-    df_total['Franquia'] = df_total['Franquia'].replace(mapeamento_franquias) 
+    df_total['Franquia'] = df_total['Franquia'].replace(mapeamento_franquias)
     ''''''
 
 

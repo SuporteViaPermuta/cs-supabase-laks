@@ -3,6 +3,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 from Unparser import unparser
 # from time import sleep
 
+
 def SaldoAssUnidade(Unidade = 'Uberaba'):
     # Unidade = os.getenv('Unidade') or 'Uberaba'
 
@@ -32,12 +33,35 @@ def SaldoAssUnidade(Unidade = 'Uberaba'):
 
     df_arquivobaixado.drop_duplicates(subset='CNPJ ou CPF', keep='last', inplace=True)
 
-    df_arquivobaixado.rename(columns={
-        'Qtd Total': 'Quantidade Permutada',
-        'CrÃ©dito DisponÃ­vel': 'Crédito Disponível',
-        'Crð©dito Disponð­vel': 'Crédito Disponível',
-        'Credito Disponi\xadvel': 'Crédito Disponível'
-    }, inplace=True)
+    # --- ANTIGO (comentado p/ time dev): lista frágil de variantes de mojibake.
+    #     Não pegava o caso real 'Credito Disponi�vel' (U+FFFD vindo corrompido
+    #     da origem) e dependia do encoding errado do unparser ---
+    # df_arquivobaixado.rename(columns={
+    #     'Qtd Total': 'Quantidade Permutada',
+    #     'CrÃ©dito DisponÃ­vel': 'Crédito Disponível',
+    #     'Crð©dito Disponð­vel': 'Crédito Disponível',
+    #     'Credito Disponi\xadvel': 'Crédito Disponível',
+    #
+    #     'Credito Disponi\xef\xbf\xbdvel': 'Crédito Disponível',
+    #
+    # }, inplace=True)
+
+    # --- NOVO: casa a coluna de crédito ignorando acento/lixo (o 'í' já vem
+    #     corrompido como U+FFFD da origem e não é recuperável por encoding) ---
+    import unicodedata
+    def _fold(s):
+        return (unicodedata.normalize("NFKD", str(s))
+                .encode("ascii", "ignore").decode("ascii").strip().lower())
+
+    df_arquivobaixado.rename(columns={'Qtd Total': 'Quantidade Permutada'}, inplace=True)
+    _col_credito = next(
+        (c for c in df_arquivobaixado.columns if _fold(c) == "credito disponivel"),
+        None,
+    )
+    if _col_credito is not None:
+        df_arquivobaixado.rename(columns={_col_credito: 'Crédito Disponível'}, inplace=True)
+
+
 
 
     # Tratamento da coluna

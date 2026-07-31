@@ -37,12 +37,15 @@ def Send2(Days):
     ReversaCuritiba = pd.read_csv("ReversaFiltered-Curitiba.csv", sep=';', encoding='utf-8-sig')
     # ReversaRibeirao_Preto = pd.read_csv("ReversaFiltered-Ribeirao_Preto.csv", sep=';', encoding='utf-8-sig')
     ReversaUberlandia = pd.read_csv("ReversaFiltered-Uberlandia.csv", sep=';', encoding='utf-8-sig')
+    ReversaFranca = pd.read_csv("ReversaFiltered-Franca.csv", sep=';', encoding='utf-8-sig')  # Franca adicionada
     # ReversaOutros = Já incluso!!
     # ReversaOutrasBases = ReversaOutrasBases.drop_duplicates()
 
     # Concatenar todos os DataFrames
     # dfReversa_total = pd.concat([ReversaUberaba, ReversaAraxa, ReversaCuritiba, ReversaRibeirao_Preto, ReversaUberlandia], ignore_index=True)
-    dfReversa_total = pd.concat([ReversaUberaba, ReversaAraxa, ReversaCuritiba, ReversaUberlandia], ignore_index=True)
+    # Franca adicionada -> linha antiga (sem Franca) comentada logo abaixo:
+    # dfReversa_total = pd.concat([ReversaUberaba, ReversaAraxa, ReversaCuritiba, ReversaUberlandia], ignore_index=True)
+    dfReversa_total = pd.concat([ReversaUberaba, ReversaAraxa, ReversaCuritiba, ReversaUberlandia, ReversaFranca], ignore_index=True)
 
     # Remover duplicados
     df_total = dfReversa_total.drop_duplicates()

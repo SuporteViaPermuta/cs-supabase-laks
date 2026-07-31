@@ -1,17 +1,27 @@
-import  warnings, pandas as pd, requests
+import  warnings, pandas as pd, requests, os
 warnings.simplefilter(action='ignore', category=UserWarning)
 
 # from notion_client import Client
 # Configurações de conexão
 # Inicialize o cliente do Notion com o token da sua integração
-# notion = Client(auth="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")
+# notion = Client(auth="<NOTION_TOKEN>")  # token movido para notion_secret.py / env NOTION_TOKEN
+
+# Token do Notion movido para FORA do codigo (push protection do GitHub bloqueia segredo).
+# Prioridade: env var NOTION_TOKEN; senao, arquivo local notion_secret.py (nao versionado).
+try:
+    from notion_secret import NOTION_TOKEN as _NOTION_TOKEN
+except Exception:
+    _NOTION_TOKEN = None
+_NOTION_TOKEN = os.getenv("NOTION_TOKEN", _NOTION_TOKEN)
 
 
-def Get_Notion(database_id="21d36fd59cd88047a835f8d688c71910", token="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", includes="*"):
+# ANTIGO (token hardcoded removido): def Get_Notion(database_id="...", token="<removido>", includes="*"):
+def Get_Notion(database_id="21d36fd59cd88047a835f8d688c71910", token=None, includes="*"):
     """
     Busca todos os dados de uma database do Notion e retorna um DataFrame.
     Compatível com qualquer versão da API.
     """
+    token = token or _NOTION_TOKEN
     headers = {
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json",
@@ -85,12 +95,14 @@ def Get_Notion(database_id="21d36fd59cd88047a835f8d688c71910", token="ntn_147611
 
 
 
-def BATCH_Update_Notion(data_list=[], token="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"):
+# ANTIGO (token hardcoded removido): def BATCH_Update_Notion(data_list=[], token="<removido>"):
+def BATCH_Update_Notion(data_list=[], token=None):
     """
     Atualiza múltiplos registros (páginas) na database do Notion,
     com suporte aos tipos: title, select, date e rich_text.
     """
 
+    token = token or _NOTION_TOKEN
     headers = {
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json",

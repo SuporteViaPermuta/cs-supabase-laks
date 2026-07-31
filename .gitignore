@@ -1,0 +1,11 @@
+# Segredos (nao versionar)
+notion_secret.py
+.env
+
+# Dados gerados pelo pipeline
+*.xlsx
+*.csv
+
+# Cache Python
+__pycache__/
+*.pyc

@@ -32,11 +32,10 @@ multiplo_30 = math.ceil(dias / 30) * 30
 # os.environ["Days"] = "120" # Quantidade de dias subtraidos na tabela de negociação
 Days = "90"or"120"or"3660"
 Days = str(multiplo_30) or "2700"
-# Days = "90" or "30"
+Days = "90" or "30"
 # print(Days)
 
-# Unidades = [{'v':'Uberaba', 'k':"dudauberaba"}, {'v':'Araxa', 'k':"dudaaraxa"}, {'v':'Curitiba', 'k':'adm.curitiba@viapermuta.com.br'}, {'v':'Ribeirao_Preto', 'k':"contato.rib1@viapermuta.com.br"}, {'v':'Uberlandia', 'k':"igor.uberlandia"}]
-Unidades = [{'v':'Uberaba', 'k':"dudauberaba"}, {'v':'Araxa', 'k':"dudaaraxa"}, {'v':'Curitiba', 'k':'adm.curitiba@viapermuta.com.br'}, {'v':'Uberlandia', 'k':"igor.uberlandia"}]
+Unidades = [{'v':'Uberaba', 'k':"dudauberaba"}, {'v':'Araxa', 'k':"dudaaraxa"}, {'v':'Curitiba', 'k':'adm.curitiba@viapermuta.com.br'}, {'v':'Uberlandia', 'k':"igor.uberlandia"},{'v':'Franca', 'k':"viapermuta.franca.adm@gmail.com"}]
 
 
 # 1° Etapa Baixa o Associados:
@@ -104,8 +103,8 @@ NP4SP(); sleep(2)
 
 
 # Atualiza as colunas de formulas:
-from ZZ_SQL import Formulador
-Formulador(); sleep(2)
+from ZZ_SQL import Formuladore
+Formuladore(); sleep(2)
 
 
 # Way Back 2:
