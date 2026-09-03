@@ -151,7 +151,8 @@ def ListaNegUnidade(Unidade = "Uberaba", Days="90"):
         # 'RIBEIRAO PRETO 1': 'RIB1',
         'UBERLÂNDIA': 'UDIA1',
         'UBERLÃ\x82NDIA': 'UDIA1',
-        'VIA PERMUTA FRANCA': 'FRA1'  # Franca adicionada
+        # 'VIA PERMUTA FRANCA': 'FRA1'  # nome antigo da coluna (Laks renomeou p/ 'FRANCA 1')
+        'FRANCA 1': 'FRA1'  # Franca (nome novo da coluna franquia na Laks)
     }
     df_sorted['Franquia Comprador'] = df_sorted['Franquia Comprador'].replace(mapeamento_franquias)
     df_sorted['Franquia Vendedor'] = df_sorted['Franquia Vendedor'].replace(mapeamento_franquias) 

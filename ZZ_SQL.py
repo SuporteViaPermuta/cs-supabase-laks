@@ -37,12 +37,14 @@ SET franquia = CASE franquia
     WHEN 'ARAXA'  THEN 'AAX1'
     WHEN 'CURITIBA 1'  THEN 'CWB2'
     WHEN 'UBERLÂNDIA'  THEN 'UDIA1'
-    WHEN 'VIA PERMUTA FRANCA'  THEN 'FRA1'
+    -- WHEN 'VIA PERMUTA FRANCA'  THEN 'FRA1'  -- nome antigo (Laks renomeou p/ 'FRANCA 1')
+    WHEN 'FRANCA 1'  THEN 'FRA1'
     ELSE franquia
 END
 -- Franca adicionada -> linha antiga (sem Franca) comentada logo abaixo:
 -- WHERE franquia IN ('UBERABA 1', 'ARAXA', 'CURITIBA 1', 'UBERLÂNDIA');
-WHERE franquia IN ('UBERABA 1', 'ARAXA', 'CURITIBA 1', 'UBERLÂNDIA', 'VIA PERMUTA FRANCA');
+-- WHERE franquia IN (..., 'VIA PERMUTA FRANCA');  -- nome antigo (Laks renomeou p/ 'FRANCA 1')
+WHERE franquia IN ('UBERABA 1', 'ARAXA', 'CURITIBA 1', 'UBERLÂNDIA', 'FRANCA 1');
 
 
 
@@ -105,12 +107,14 @@ SET link_franquia = CASE link_franquia
     WHEN 'ARAXA'  THEN 'AAX1'
     WHEN 'CURITIBA 1'  THEN 'CWB2'
     WHEN 'UBERLÂNDIA'  THEN 'UDIA1'
-    WHEN 'VIA PERMUTA FRANCA'  THEN 'FRA1'
+    -- WHEN 'VIA PERMUTA FRANCA'  THEN 'FRA1'  -- nome antigo (Laks renomeou p/ 'FRANCA 1')
+    WHEN 'FRANCA 1'  THEN 'FRA1'
     ELSE link_franquia
 END
 -- Franca adicionada -> linha antiga (sem Franca) comentada logo abaixo:
 -- WHERE link_franquia IN ('UBERABA 1', 'ARAXA', 'CURITIBA 1', 'UBERLÂNDIA');
-WHERE link_franquia IN ('UBERABA 1', 'ARAXA', 'CURITIBA 1', 'UBERLÂNDIA', 'VIA PERMUTA FRANCA');
+-- WHERE link_franquia IN (..., 'VIA PERMUTA FRANCA');  -- nome antigo (Laks renomeou p/ 'FRANCA 1')
+WHERE link_franquia IN ('UBERABA 1', 'ARAXA', 'CURITIBA 1', 'UBERLÂNDIA', 'FRANCA 1');
 
 
 /*
@@ -244,12 +248,14 @@ SET franquia_comprador = CASE franquia_comprador
     WHEN 'ARAXA'  THEN 'AAX1'
     WHEN 'CURITIBA 1'  THEN 'CWB2'
     WHEN 'UBERLÂNDIA'  THEN 'UDIA1'
-    WHEN 'VIA PERMUTA FRANCA'  THEN 'FRA1'
+    -- WHEN 'VIA PERMUTA FRANCA'  THEN 'FRA1'  -- nome antigo (Laks renomeou p/ 'FRANCA 1')
+    WHEN 'FRANCA 1'  THEN 'FRA1'
     ELSE ''
 END
 -- Franca adicionada -> linha antiga (sem Franca) comentada logo abaixo:
 -- WHERE franquia_comprador IN ('UBERABA 1', 'ARAXA', 'CURITIBA 1', 'UBERLÂNDIA');
-WHERE franquia_comprador IN ('UBERABA 1', 'ARAXA', 'CURITIBA 1', 'UBERLÂNDIA', 'VIA PERMUTA FRANCA');
+-- WHERE franquia_comprador IN (..., 'VIA PERMUTA FRANCA');  -- nome antigo (Laks renomeou p/ 'FRANCA 1')
+WHERE franquia_comprador IN ('UBERABA 1', 'ARAXA', 'CURITIBA 1', 'UBERLÂNDIA', 'FRANCA 1');
 
 UPDATE public."z2lista_negociacoes"
 SET franquia_vendedor = CASE franquia_vendedor
@@ -258,12 +264,14 @@ SET franquia_vendedor = CASE franquia_vendedor
     WHEN 'CURITIBA 1'  THEN 'CWB2'
     --WHEN 'RIBEIRAO PRETO 1'  THEN 'RIB1'
     WHEN 'UBERLÂNDIA'  THEN 'UDIA1'
-    WHEN 'VIA PERMUTA FRANCA'  THEN 'FRA1'
+    -- WHEN 'VIA PERMUTA FRANCA'  THEN 'FRA1'  -- nome antigo (Laks renomeou p/ 'FRANCA 1')
+    WHEN 'FRANCA 1'  THEN 'FRA1'
     ELSE ''
 END
 -- Franca adicionada -> linha antiga (sem Franca) comentada logo abaixo:
 -- WHERE franquia_vendedor IN ('UBERABA 1', 'ARAXA', 'CURITIBA 1', 'UBERLÂNDIA');
-WHERE franquia_vendedor IN ('UBERABA 1', 'ARAXA', 'CURITIBA 1', 'UBERLÂNDIA', 'VIA PERMUTA FRANCA');
+-- WHERE franquia_vendedor IN (..., 'VIA PERMUTA FRANCA');  -- nome antigo (Laks renomeou p/ 'FRANCA 1')
+WHERE franquia_vendedor IN ('UBERABA 1', 'ARAXA', 'CURITIBA 1', 'UBERLÂNDIA', 'FRANCA 1');
 
 
 

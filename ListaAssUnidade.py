@@ -53,7 +53,8 @@ def ListaAssUnidade(Unidade = "Araxa"):
         # 'RIBEIRAO PRETO 1': 'RIB1',
         'UBERLÂNDIA': 'UDIA1',
         'UBERLÃ\x82NDIA': 'UDIA1',
-        'VIA PERMUTA FRANCA': 'FRA1'  # Franca adicionada
+        # 'VIA PERMUTA FRANCA': 'FRA1'  # nome antigo da coluna (Laks renomeou p/ 'FRANCA 1')
+        'FRANCA 1': 'FRA1'  # Franca (nome novo da coluna franquia na Laks)
     }
     df_Associados['Franquia'] = df_Associados['Franquia'].replace(mapeamento_franquias)
 
